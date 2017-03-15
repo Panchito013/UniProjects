@@ -60,8 +60,3 @@ void* uscita(void* out){
     }
     return ((void*)NULL);
 }
-
-
-
-
-

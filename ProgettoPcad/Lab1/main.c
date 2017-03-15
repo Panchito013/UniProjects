@@ -17,6 +17,7 @@ pthread_t macchine[MAXP];
 int i = 0;
 for(i = 0; i < n; i++){
     if(pthread_create(macchine[i], NULL, task) != 0){
+      printf("Error in thread creation");
 
     }
 }
