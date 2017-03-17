@@ -15,7 +15,7 @@ typedef struct{
     pthread_mutex_t lock;
     pthread_cond_t p_Queue;
     pthread_cond_t s_Queue;
-}MONITOR;
+}t_park;
 
 
 void* ingressoS(void* in);
