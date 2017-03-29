@@ -3,16 +3,19 @@ package simpleParkingLot;
 public class carThread extends Thread {
 	
 	parkingLot park;
-	public int attempt = 0;
+	private int attempt = 0;
+	private int iteration = 0;
 	
 	
-	public carThread(String name, parkingLot park){
+	
+	public carThread(String name, parkingLot park, int iterations){
 		super(name);
 		this.park = park;
+		this.iteration = iterations;
 	}
 	
 	public synchronized void run(){
-		while (this.attempt < park.MAXATTEMPTS){
+		while (this.attempt < this.iteration){
 			try {
 				sleep(3000);
 			} catch (InterruptedException e) {

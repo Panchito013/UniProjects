@@ -3,7 +3,6 @@ package simpleParkingLot;
 public class parkingLot {
 	
 	final int MAXLOTS = 20;
-	final int MAXATTEMPTS = 5;
 	int freeLots;
 	
 	public parkingLot(){
