@@ -1,20 +1,16 @@
 package simpleParkingLot;
 
 public class parkingLot {
-	
+		
 	private final int MAXLOTS = 20;
-	private int freeLots;
+	public volatile int freeLots;
 	
 	public parkingLot(){
 		this.freeLots = MAXLOTS;
 	}
-	
-	public int getFreeLots(){
-		return freeLots;
-	}
-	
+		
 	synchronized void entrance(){
-		while(this.freeLots == 0){
+		while(freeLots == 0){
 			System.out.println("parkingLot is FULL");
 			try {
 				this.wait();
@@ -23,12 +19,13 @@ public class parkingLot {
 				e.printStackTrace();
 			}
 		}
-		this.freeLots--;
+		freeLots--;
+		
+
 	}
 	
-	
 	synchronized void exit(){
-		this.freeLots++;
+		freeLots++;
 		notifyAll();
 	}
 

@@ -14,8 +14,8 @@ public class carThread extends Thread {
 		this.iteration = iterations;
 	}
 	
-	public synchronized void run(){
-		while (this.attempt < this.iteration){
+	public  void run(){
+		while (attempt < iteration){
 			try {
 				sleep(3000);
 			} catch (InterruptedException e) {
@@ -24,7 +24,7 @@ public class carThread extends Thread {
 			}
 			park.entrance();
 			//System.out.println("Attempt car: " + this.getName() + "\t\tattempt: " + (attempt+1));
-			System.out.println("Enters car: " + this.getName() + "\t\tfree lots: " + park.getFreeLots());
+			System.out.println("Enters car: " + this.getName() + "\t\tfree lots: " + park.freeLots);
 			try {
 				sleep(3000);
 			} catch (InterruptedException e) {
@@ -32,9 +32,9 @@ public class carThread extends Thread {
 				e.printStackTrace();
 			}
 			park.exit();
-			System.out.println("Exits car: " + this.getName() + "\t\tfree lots: " + park.getFreeLots());
+			System.out.println("Exits car: " + this.getName() + "\t\tfree lots: " + park.freeLots);
 			
-			this.attempt++;
+			attempt++;
 		}
 
 	}
