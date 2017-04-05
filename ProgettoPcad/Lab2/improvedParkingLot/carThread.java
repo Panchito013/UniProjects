@@ -20,7 +20,7 @@ public class carThread extends Thread{
 	public void run(){
 		while (this.attempt < this.iteration){
 			try {
-				sleep(3000);
+				sleep(3000L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -35,6 +35,13 @@ public class carThread extends Thread{
 				park.entranceB();
 				System.out.println("Enters car on entrance B: " + this.getName() + "\t\tfree lots: " + park.getFreeLots());
 			}	
+			
+			try {
+				sleep(3000L);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 			park.exit();
 			System.out.println("Exits car: " + this.getName() + "\t\tfree lots: " + park.getFreeLots());

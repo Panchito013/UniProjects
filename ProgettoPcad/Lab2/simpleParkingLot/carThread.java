@@ -5,6 +5,7 @@ public class carThread extends Thread {
 	parkingLot park;
 	private int attempt = 0;
 	private int iteration = 0;
+	private int rdmTime;
 	
 	
 	
@@ -17,7 +18,8 @@ public class carThread extends Thread {
 	public  void run(){
 		while (attempt < iteration){
 			try {
-				sleep(3000);
+				rdmTime = (int) Math.random() * 30000;
+				sleep(rdmTime);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -26,7 +28,8 @@ public class carThread extends Thread {
 			//System.out.println("Attempt car: " + this.getName() + "\t\tattempt: " + (attempt+1));
 			System.out.println("Enters car: " + this.getName() + "\t\tfree lots: " + park.freeLots);
 			try {
-				sleep(3000);
+				//rdmTime = (int) Math.random() * 30000;
+				sleep(5000L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
